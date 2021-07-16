@@ -4,8 +4,8 @@
     <ul v-for="product in products" :key="products.indexOf(product.name)">
       <li>{{ product.name }}</li>
     </ul> -->
-    <ProductOne v-bind:products="products" />
-    <ProductTwo v-bind:products="products" />
+    <ProductOne :products="products" />
+    <ProductTwo :products="products" />
   </div>
 </template>
 
@@ -20,14 +20,7 @@ export default {
     ProductTwo,
   },
   data() {
-    return {
-      products: [
-        { name: "Banana Skin", price: 20 },
-        { name: "Skinny Star", price: 40 },
-        { name: "Green Shells", price: 60 },
-        { name: "Red Shells", price: 80 },
-      ],
-    };
+    return {};
   },
 };
 </script>
