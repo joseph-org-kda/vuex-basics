@@ -5,7 +5,7 @@
         <li v-for=""></li>
     </ul> -->
     <ul>
-      <li v-for="product in products" :key="products.indexOf(product.name)">
+      <li v-for="product in saleProducts" :key="products.indexOf(product.name)">
         <span class="name">{{ product.name }}: </span>
         <span class="price">£{{ product.price }}</span>
       </li>
@@ -19,6 +19,15 @@ export default {
   computed: {
     products() {
       return this.$store.state.products;
+    },
+    saleProducts() {
+      const saleProducts = this.$store.state.products.map((product) => {
+        return {
+          name: "*" + product.name + "*",
+          price: product.price / 2,
+        };
+      });
+      return saleProducts;
     },
   },
 };
