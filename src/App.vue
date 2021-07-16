@@ -4,8 +4,8 @@
     <ul v-for="product in products" :key="products.indexOf(product.name)">
       <li>{{ product.name }}</li>
     </ul> -->
-    <ProductOne :products="products" />
-    <ProductTwo :products="products" />
+    <ProductOne />
+    <ProductTwo />
   </div>
 </template>
 

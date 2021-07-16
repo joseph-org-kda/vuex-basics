@@ -16,7 +16,11 @@
 <script>
 export default {
   name: "ProductOne",
-  props: ["products"],
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+  },
 };
 </script>
 
