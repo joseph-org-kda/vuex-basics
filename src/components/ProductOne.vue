@@ -5,12 +5,12 @@
         <li v-for=""></li>
     </ul> -->
     <ul>
-      <li v-for="product in saleProducts" :key="products.indexOf(product.name)">
+      <li v-for="(product, i) in saleProducts" :key="i">
         <span class="name">{{ product.name }}: </span>
         <span class="price">£{{ product.price }}</span>
       </li>
     </ul>
-    <button v-on:click="reducePrice">Reduce price</button>
+    <button v-on:click="reducePrice(4)">Reduce price</button>
   </div>
 </template>
 
@@ -26,8 +26,15 @@ export default {
     },
   },
   methods: {
-    reducePrice: function () {
-      this.$store.commit("reducePrice");
+    // reducePrice: function () {
+    //   this.$store.state.products.forEach((product) => {
+    //     product.price -= 1;
+    //   });
+    // },
+
+    reducePrice: function (amount) {
+      // this.$store.commit("reducePrice"); //Committing mutations
+      this.$store.dispatch("reducePrice", amount);
     },
   },
 };
