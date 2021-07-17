@@ -15,27 +15,31 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "ProductOne",
   computed: {
     products() {
       return this.$store.state.products;
     },
-    saleProducts() {
-      return this.$store.getters.saleProducts;
-    },
+    ...mapGetters(["saleProducts"]),
+    // saleProducts() {
+    //   return this.$store.getters.saleProducts;
+    // },
   },
   methods: {
+    ...mapActions(["reducePrice"]),
     // reducePrice: function () {
     //   this.$store.state.products.forEach((product) => {
     //     product.price -= 1;
     //   });
     // },
 
-    reducePrice: function (amount) {
-      // this.$store.commit("reducePrice"); //Committing mutations
-      this.$store.dispatch("reducePrice", amount);
-    },
+    // reducePrice: function (amount) {
+    //   // this.$store.commit("reducePrice"); //Committing mutations
+    //   this.$store.dispatch("reducePrice", amount);
+    // },
   },
 };
 </script>
